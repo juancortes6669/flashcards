@@ -1,6 +1,11 @@
-const express = require('express');
-const fetch = require('node-fetch'); // Asegúrate de instalar node-fetch si no lo has hecho: npm install node-fetch
-const path = require('path');
+import express from 'express';
+import fetch from 'node-fetch'; // Asegúrate de que tu versión de node-fetch soporta ESM
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import { join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
