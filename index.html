@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div id="flashcard" class="flashcard">
+        <div class="card-score">
+            <span id="current-score">0</span>/<span id="total-score">500</span>
+        </div>
+        <div class="card-content">
+            <div id="chinese-characters" class="chinese-characters">汉字</div>
+            <div id="pinyin" class="pinyin">pīnyīn</div>
+            <div id="translation" class="translation">English</div>
+            <div id="french-translation" class="french-translation">French</div>
+            <div class="explanation" id="explanation">Explicación corta del origen o significado de los caracteres.</div>
+            <div class="example-sentences" id="example-sentences"></div>
+        </div>
+        <div class="card-footer">
+            <button id="new-card-button" class="new-card-button">New Card</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
