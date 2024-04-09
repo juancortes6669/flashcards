@@ -2,8 +2,7 @@
   "name": "flashcards",
   "version": "1.0.0",
   "description": "A flashcard app with GPT-3",
-  "type": "module",
-  "main": "server.mjs",
+  "main": "server.js",
   "engines": {
     "node": "20.x"
   },
