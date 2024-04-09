@@ -7,10 +7,15 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["flashcards", "gpt-3", "education"],
+  "keywords": [
+    "flashcards",
+    "gpt-3",
+    "education"
+  ],
   "author": "Juanelo",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
   }
 }
