@@ -4,6 +4,9 @@
   "description": "A flashcard app with GPT-3",
   "type": "module",
   "main": "server.mjs",
+  "engines": {
+    "node": "14.x" // Cambia la versión de Node.js a una compatible con Heroku
+  },
   "scripts": {
     "start": "node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
