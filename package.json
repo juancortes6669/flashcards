@@ -2,9 +2,10 @@
   "name": "flashcards",
   "version": "1.0.0",
   "description": "A flashcard app with GPT-3",
-  "main": "server.js",
+  "type": "module",
+  "main": "server.mjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
