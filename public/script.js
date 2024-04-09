@@ -11,25 +11,13 @@ async function fetchWordsFromAPI() {
     }
 
     try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('/get-flashcard', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: [
-                    {
-                        "role": "system",
-                        "content": "You are an AI trained to provide flashcards with a Chinese character, Pinyin, English and French translations, and a short explanation."
-                    },
-                    {
-                        "role": "user",
-                        "content": "Generate a flashcard with a unique Chinese character and provide the Pinyin, English translation, French translation, and a short explanation of the character."
-                    }
-                ]
-            })
+            // No necesitas enviar el cuerpo si el mensaje es siempre el mismo
+            // puede ser manejado directamente en el servidor.
         });
 
         if (!response.ok) {
@@ -37,6 +25,7 @@ async function fetchWordsFromAPI() {
         }
 
         const data = await response.json();
+        // Asumimos que la respuesta del servidor es la misma que esperarías de OpenAI
         const content = data.choices[0].message.content;
         const character = content.match(/Character: (\S+)/)[1]; // Extrae el carácter chino
 
@@ -47,7 +36,7 @@ async function fetchWordsFromAPI() {
             displayFlashcard(content);
         } else {
             console.log('Repeated character detected:', character);
-            await fetchWordsFromAPI(); // Intenta de nuevo si se detecta un carácter repetido
+            // No llames a fetchWordsFromAPI() inmediatamente para evitar posibles bucles infinitos
         }
     } catch (error) {
         console.error('There was a problem fetching the flashcard data:', error);
@@ -59,12 +48,14 @@ function updateFlashcardCount() {
 }
 
 function displayFlashcard(content) {
+    // Asegúrate de que la estructura de content coincide con lo que devuelve tu servidor
     const parts = content.replace('Character: ', '')
                          .replace('English Translation: ', 'English: ')
                          .replace('French Translation: ', 'French: ')
                          .split('\n')
                          .map(part => part.trim());
-    
+
+    // Suponiendo que tu HTML tiene estos ID's para mostrar la información de la tarjeta
     document.getElementById('chinese-characters').textContent = parts[0];
     document.getElementById('pinyin').textContent = parts[1];
     document.getElementById('translation').textContent = parts[2].replace('English: ', '');
