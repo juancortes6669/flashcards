@@ -5,7 +5,7 @@
   "type": "module",
   "main": "server.mjs",
   "engines": {
-    "node": "14.x" // Cambia la versión de Node.js a una compatible con Heroku
+    "node": "20.x" // Cambia la versión de Node.js a una compatible con Heroku
   },
   "scripts": {
     "start": "node server.mjs",
