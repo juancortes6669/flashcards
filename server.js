@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 import fetch from 'node-fetch'; // Asegúrate de que tu versión de node-fetch soporta ESM
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
